@@ -9,14 +9,13 @@
                         (click)="onSubmit()" 
                         class="btn btn-success"
                     >Save</button>
-                    <button type="button" class="btn btn-danger">Cancel</button>
+                    <button type="button" class="btn btn-danger" (click)="onCancelEdit()">Cancel</button>
                 </div>
             </div>
-
+            <hr>
             <div class="row">
                 <div class="col-xs-12">
                     <div class="form-group">
-                        <hr>
                         <label for="name">Name</label>
                         <input 
                             type="text"
@@ -36,13 +35,14 @@
                             id="imagePath"
                             formControlName="imagePath"
                             class="form-control"
+                            #imagePath
                         />
                     </div>
                 </div>
             </div>
             <div class="row">
                 <div class="col-xs-12">
-                    <img src="" class="img-responsive">
+                    <img style="max-height: 250px;" [src]="imagePath.value" class="img-responsive">
                 </div>
             </div>
             <div class="row">
@@ -82,7 +82,11 @@
                             />
                         </div>
                         <div class="col-xs-2">
-                            <button class="btn btn-danger">X</button>
+                            <button 
+                                type="button" 
+                                class="btn btn-danger" 
+                                (click)="onDeleteIngredient(i)"
+                            >X</button>
                         </div>
                     </div>
                 </div>
@@ -90,9 +94,14 @@
             <hr />
             <div class="row">
                 <div class="col-xs-12">
-                    <button class="btn btn-success" (click)="onAddIngredient()">Add Ingredient</button>
+                    <button 
+                        type="button" 
+                        class="btn btn-success" 
+                        (click)="onAddIngredient()"
+                    >Add Ingredient</button>
                 </div>
             </div>
+            <hr>
         </form>
     </div>
 </div>

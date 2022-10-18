@@ -65,6 +65,26 @@ export class RecipeService {
                 new Ingredient('Fresh cilantro', 1),
                 new Ingredient('Kosher salt and pepper', 1),
             ]
+        ),
+        new Recipe(
+            'Chicken Pad Thai',
+            'EASY, ready in 20 minutes, and BETTER than takeout!! Tender rice noodles, juicy chicken, with crisp-tender carrots, cabbage, and more for an IRRESISTIBLE and AUTHENTIC chicken pad Thai!!',
+            'https://www.averiecooks.com/wp-content/uploads/2019/10/padthai-5.jpg',
+            [
+                new Ingredient('Flat rice noodles', 1),
+                new Ingredient('Coconut oil', 1),
+                new Ingredient('Onion', 1),
+                new Ingredient('Chicken breasts', 1),
+                new Ingredient('Garlic', 1),
+                new Ingredient('Ground ginger', 1),
+                new Ingredient('Green cabbage', 1),
+                new Ingredient('Shredded carrots', 1),
+                new Ingredient('Low-sodium soy sauce', 1),
+                new Ingredient('Fish sauce', 1),
+                new Ingredient('Lime juice', 1),
+                new Ingredient('Honey', 1),
+                new Ingredient('Green onions', 1),
+            ]
         )
     ];
 
@@ -91,5 +111,10 @@ export class RecipeService {
     updateRecipe(index: number, newRecipe: Recipe) {
         this.recipes[index] = newRecipe;
         this.recipesChanged.next(this.recipes.slice());
+    }
+
+    deleteRecipe(index: number) {
+        this.recipes.splice(index, 1);
+        this.recipesChanged.next(this.recipes.slice())
     }
 }
